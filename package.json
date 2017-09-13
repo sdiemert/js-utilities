@@ -1,0 +1,23 @@
+{
+  "name": "js-utilities",
+  "version": "1.0.0",
+  "description": "a set of javascript utility functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdiemert/js-utilities.git"
+  },
+  "keywords": [
+    "utility",
+    "javascript"
+  ],
+  "author": "sdiemert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdiemert/js-utilities/issues"
+  },
+  "homepage": "https://github.com/sdiemert/js-utilities#readme"
+}
