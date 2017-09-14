@@ -7,6 +7,24 @@
 var assert        = require('assert');
 var util = require('./index');
 
+class Foo{
+    constructor(){
+
+    }
+}
+
+class Bar extends Foo{
+    constructor(){
+        super();
+    }
+}
+
+class Baz extends Foo{
+   constructor(){
+       super();
+   }
+}
+
 describe("js-utilities", function () {
 
     describe("#truthy", function () {
@@ -116,6 +134,33 @@ describe("js-utilities", function () {
             assert.equal(util.falsy("hi"), false);
             assert.equal(util.falsy("0"), false);
         });
+
+    });
+
+    describe("#isInstanceOf", function(){
+
+
+        it("should recognize direct children", function(){
+            assert.equal(util.isInstanceOf(new Foo(), Foo), true);
+        });
+
+        it("should recognize parent types", function(){
+            assert.equal(util.isInstanceOf(new Bar(), Foo), true);
+        });
+
+        it("should return false for different classes", function(){
+            assert.equal(util.isInstanceOf(new Bar(), Baz), false);
+        });
+
+        it("should work for native types", function(){
+            assert.equal(util.isInstanceOf("foo", "string"), true);
+            assert.equal(util.isInstanceOf(1, "number"), true);
+        });
+
+        it("should identify objects", function(){
+            assert.equal(util.isInstanceOf(new Bar(), Object), true);
+        });
+
 
     });
 
